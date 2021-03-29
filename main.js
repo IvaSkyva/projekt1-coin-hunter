@@ -25,26 +25,39 @@ function detectKey(e) {
     if (e.keyCode == '38') {
         // up arrow
         if (posTop > 0) {
-        document.getElementById('panacek').style.marginTop  = (posTop-58)+"px";
+        document.getElementById('panacek').style.marginTop  = (posTop-30)+"px";
         }
     }
     else if (e.keyCode == '40') {
         // down arrow
         if(posTop < h - 250) {
-        document.getElementById('panacek').style.marginTop  = (posTop+58)+"px";
+        document.getElementById('panacek').style.marginTop  = (posTop+30)+"px";
         }
     }
     else if (e.keyCode == '37') {
        // left arrow
         if(posLeft > 0) {
-        document.getElementById('panacek').style.marginLeft  = (posLeft-58)+"px";
+        document.getElementById('panacek').style.marginLeft  = (posLeft-30)+"px";
         }
     }
     else if (e.keyCode == '39') {
        // right arrow
         if(posLeft < w - 160) {
-        document.getElementById('panacek').style.marginLeft  = (posLeft+58)+"px";
+        document.getElementById('panacek').style.marginLeft  = (posLeft+30)+"px";
         }
     }
 }
-  
+
+
+let getRandom = (min, max) => Math.floor(Math.random()*(max-min+1)+min);
+
+let mince= document.querySelector('#mince');
+
+//  setInterval(() => {
+
+   mince.style.left= getRandom(0, (w - 200))+'px'; //  Horizontally
+   mince.style.top = getRandom(0, (h - 200))+'px'; //  Vertically
+   console.log(mince) 
+   
+//  }, 3000); // every 3 seconds
+
