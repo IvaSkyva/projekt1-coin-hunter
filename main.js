@@ -31,26 +31,26 @@ function detectKey(e) {
     if (e.keyCode == '38') {
         // up arrow
         if (posTop > 0) {
-            panacek.style.top  = (posTop-60)+"px";
+            panacek.style.top  = (posTop-50)+"px";
 
         }
     }
     else if (e.keyCode == '40') {
         // down arrow
         if(posTop < h - 250) {
-            panacek.style.top  = (posTop+60)+"px";
+            panacek.style.top  = (posTop+50)+"px";
         }
     }
     else if (e.keyCode == '37') {
        // left arrow
         if(posLeft > 0) {
-            panacek.style.left  = (posLeft-60)+"px";
+            panacek.style.left  = (posLeft-50)+"px";
         }
     }
     else if (e.keyCode == '39') {
        // right arrow
         if(posLeft < w - 160) {
-            panacek.style.left  = (posLeft+60)+"px";
+            panacek.style.left  = (posLeft+50)+"px";
         }
     }
 
@@ -66,12 +66,15 @@ function detekujKolizi() {
     if (!( panacekX + panacekSirka < minceX || minceX + minceSirka < panacekX || panacekY + panacekVyska < minceY || minceY + minceVyska < panacekY)) {
         // panacek a mince se prekryvaji
         console.log("kolize");
-        
+        cink();
     }
 
 }
 
-
+function cink() {    
+    let audio = document.querySelector('#zvukmince');
+    audio.play();
+}
 
 let getRandom = (min, max) => Math.floor(Math.random()*(max-min+1)+min);
 
