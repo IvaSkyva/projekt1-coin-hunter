@@ -11,6 +11,7 @@ if (!( panacekX + panacekSirka < minceX || minceX + minceSirka < panacekX || pan
 
 let w = screen.width;
 let h = screen.height;
+let tlacitko = document.querySelector('.start');
 let panacek = document.getElementById('panacek');
 let mince= document.querySelector('#mince');
 let panacekSirka = panacek.width;
@@ -18,7 +19,18 @@ let panacekVyska = panacek.height;
 let minceSirka = mince.width;
 let minceVyska = mince.height;
 
+cudlik();
+function cudlik() {
+    tlacitko.style.left = (w - 160) + "px";
+    tlacitko.style.top = (h - 170) + "px";
+}
 
+naStart();
+
+function naStart() {
+    panacek.style.left = (w - 160) + "px";
+    panacek.style.top = (h - 250) + "px";
+}
 
 document.onkeydown = detectKey;
 
@@ -63,7 +75,7 @@ function detekujKolizi() {
     let minceX = mince.offsetLeft;
     let minceY = mince.offsetTop;
 
-    if (!( panacekX + panacekSirka < minceX || minceX + minceSirka < panacekX || panacekY + panacekVyska < minceY || minceY + minceVyska < panacekY)) {
+    if (!( panacekX + panacekSirka < minceX || minceX + minceSirka < panacekX || panacekY + panacekVyska < minceY || minceY + minceVyska < panacekY))  {
         // panacek a mince se prekryvaji
         console.log("kolize");
         cink();

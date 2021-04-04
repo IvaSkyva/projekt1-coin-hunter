@@ -54,3 +54,7 @@ body {
 	left: 0px;
 	z-index: 1;
 }
+
+.start {
+	position: absolute;
+}
