@@ -18,6 +18,13 @@ let panacekSirka = panacek.width;
 let panacekVyska = panacek.height;
 let minceSirka = mince.width;
 let minceVyska = mince.height;
+let score = document.querySelector('#score');
+let pocetMinci;
+
+
+pocetMinci = 0;
+	
+
 
 cudlik();
 function cudlik() {
@@ -43,26 +50,29 @@ function detectKey(e) {
     if (e.keyCode == '38') {
         // up arrow
         if (posTop > 0) {
-            panacek.style.top  = (posTop-50)+"px";
-
+            panacek.style.top  = (posTop-10)+"px";
+            panacek.src = "obrazky/panacek-nahoru.png";
         }
     }
     else if (e.keyCode == '40') {
         // down arrow
         if(posTop < h - 250) {
-            panacek.style.top  = (posTop+50)+"px";
+            panacek.style.top  = (posTop+10)+"px";
+            panacek.src = "obrazky/panacek.png";
         }
     }
     else if (e.keyCode == '37') {
        // left arrow
         if(posLeft > 0) {
-            panacek.style.left  = (posLeft-50)+"px";
+            panacek.style.left  = (posLeft-10)+"px";
+            panacek.src = "obrazky/panacek-vlevo.png";
         }
     }
     else if (e.keyCode == '39') {
        // right arrow
         if(posLeft < w - 160) {
-            panacek.style.left  = (posLeft+50)+"px";
+            panacek.style.left  = (posLeft+10)+"px";
+            panacek.src = "obrazky/panacek-vpravo.png";
         }
     }
 
@@ -77,12 +87,15 @@ function detekujKolizi() {
 
     if (!( panacekX + panacekSirka < minceX || minceX + minceSirka < panacekX || panacekY + panacekVyska < minceY || minceY + minceVyska < panacekY))  {
         // panacek a mince se prekryvaji
-        console.log("kolize");
+       
         cink();
+           
     }
-
 }
+ 
 
+
+// přidáme zvuk cinknutí
 function cink() {    
     let audio = document.querySelector('#zvukmince');
     audio.play();
@@ -90,14 +103,12 @@ function cink() {
 
 let getRandom = (min, max) => Math.floor(Math.random()*(max-min+1)+min);
 
-
-
 setInterval(() => {
 
    mince.style.left= getRandom(0, (w - 200))+'px'; //  Horizontally
    mince.style.top = getRandom(0, (h - 200))+'px'; //  Vertically
    console.log(mince); 
-  }, 3000); // every 3 seconds
+  }, 4000); // every 4 seconds
 
  
 
